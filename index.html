@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+      	* {
+          box-sizing: border-box;
+        }
+
+        body,
+        html {
+            padding: 0.5cm 1cm;
+            margin: 0;
+            width: 17.5cm;
+        }
+
+        input {
+            display: inline;
+            border: 0;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .stamp input, .stamp {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            line-height: 12px;
+            font-weight: 700;
+            color: #225;
+            padding: 0;
+        }
+
+        .stamp {
+            -webkit-mask-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png');
+            -webkit-mask-position: 13rem 6rem;
+            -webkit-mask-size: 944px 604px;
+            border: 0.05cm solid #225;
+            display: inline-block;
+            mix-blend-mode: multiply;
+            text-align: center;
+            text-transform: uppercase;
+            transform: rotate(-18deg);
+            width: 3.8cm;
+            height: 3cm;
+        }
+
+        .data {
+            padding: 0.2cm 0;
+        }
+
+        .motivo {
+            text-decoration: bold;
+        }
+
+        .motivo-cod {
+            color: white;
+        }
+
+        .banco {
+            font-size: 85%;
+        }
+
+        .endereco {
+            font-size: 65%;
+        }
+
+        .dia {
+            width: 1.1em;
+        }
+
+        .mes {
+            width: 2em;
+        }
+
+        .ano {
+            width: 2.5em;
+        }
+    </style>
+
+    <script>
+        var meses = [
+            "JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"
+        ];
+        window.onload = () => {
+            var data = new Date();
+         	data.setDate(data.getDate()-1);
+
+            var dia = data.getDate(),
+                mes = meses[data.getMonth()],
+                ano = data.getFullYear();
+
+            document.querySelector('.dia').value = dia;
+            document.querySelector('.mes').value = mes;
+            document.querySelector('.ano').value = ano;
+        };
+    </script>
+</head>
+<body>
+    <div class="stamp">
+        <div>APRESENTADO NA COMPE</div>
+        <div>
+            DEVOLVIDO PELO<br>
+            BANCO SACADO
+        </div>
+        <div class="data">
+            <input type="text" class="dia" value="">
+            <input type="text" class="mes" value="">
+            <input type="text" class="ano" value="">
+        </div>
+        <div class="motivo">MOTIVO<span class="motivo-cod">___</span></div>
+        <div class="banco">001 BANCO DO BRASIL S.A.</div>
+        <div class="endereco">1636 Epitácio Pessoa PB</div>
+    </div>
+
+
+</body>
+
+</html>
