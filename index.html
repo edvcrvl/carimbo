@@ -76,7 +76,7 @@
         }
 
         .mes {
-            width: 2em;
+            width: 2.4em;
         }
 
         .ano {
@@ -88,6 +88,8 @@
         var meses = [
             "JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"
         ];
+        randInt = (max) => Math.floor(Math.random() * max)
+
         window.onload = () => {
             var data = new Date();
          	data.setDate(data.getDate()-1);
@@ -99,6 +101,8 @@
             document.querySelector('.dia').value = dia;
             document.querySelector('.mes').value = mes;
             document.querySelector('.ano').value = ano;
+
+            document.querySelector('.stamp').style.setProperty('-webkit-mask-position', `${randInt(400)}rem ${randInt(300)}rem`);
         };
     </script>
 </head>
